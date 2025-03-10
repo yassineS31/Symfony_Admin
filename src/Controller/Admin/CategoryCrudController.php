@@ -15,7 +15,6 @@ class CategoryCrudController extends AbstractCrudController
         return Category::class;
     }
 
-<<<<<<< HEAD
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -23,15 +22,4 @@ class CategoryCrudController extends AbstractCrudController
             TextField::new('name',"Nom de la catégorie"),
         ];
     }
-=======
-    
-    public function configureFields(string $pageName): iterable
-    {
-         return [
-            IdField::new('id', 'Clé primaire')->hideOnForm(),
-            TextField::new('name', "Nom de la catégorie"),
-        ];
-    }
-    
->>>>>>> 17354ff9a917947db5ea297c25544468a8e27f0e
 }

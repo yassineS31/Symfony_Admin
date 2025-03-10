@@ -101,16 +101,9 @@ class Account implements PasswordAuthenticatedUserInterface
         return $this;
     }
 
-<<<<<<< HEAD
-    public function __toString(): string
-    {
-        return $this->firstname." ".$this->lastname;
-    }
-=======
     public function __toString()
     {
-        return $this->firstname . ' ' . $this->lastname;
+        return $this->firstname . ' ' .$this->lastname;
     }
 
->>>>>>> 17354ff9a917947db5ea297c25544468a8e27f0e
 }
