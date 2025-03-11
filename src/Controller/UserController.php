@@ -10,14 +10,15 @@ use App\Repository\AccountRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\AccountType;
 use Doctrine\ORM\EntityManagerInterface;
-
+use App\Service\AccountService;
 
 
 final class UserController extends AbstractController
 {
     public function __construct(
         private readonly AccountRepository $accountRepository,
-        private readonly EntityManagerInterface $em
+        private readonly EntityManagerInterface $em,
+        private readonly AccountService $accountService
 
     ) {}
 
@@ -34,11 +35,16 @@ final class UserController extends AbstractController
     }
 
     #[Route('/accounts', name: 'app_user_accounts')]
-    public function showAllAccounts(): Response
-    {
+    // public function showAllAccounts(): Response
+    // {
+    //     return $this->render('user/accounts.html.twig', [
+    //         "accounts" => $this->accountRepository->findAll()
+    //     ]);
+    // }
+    public function showAllAccounts():Response{
         return $this->render('user/accounts.html.twig', [
-            "accounts" => $this->accountRepository->findAll()
-        ]);
+                    "accounts" =>$this->accountService->getAll()
+                 ]);
     }
 
 
